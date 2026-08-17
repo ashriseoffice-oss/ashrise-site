@@ -1,0 +1,62 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout>
+  <main class="service">
+    <h1>事業内容</h1>
+    <p class="lead">SNS運用代行 × 広告事業 × 営業代行 —— ワンストップ型 総合マーケティング支援</p>
+
+    <div class="service-item">
+      <h2>01 SNS運用代行</h2>
+      <p>企業のSNSアカウント運用を代行し、企画・撮影・編集・投稿・分析までを一貫して支援します。</p>
+    </div>
+
+    <div class="service-item">
+      <h2>02 広告事業</h2>
+      <p>Instagram・TikTokを中心に、企業・店舗・賃貸物件・商品などのPRを企画・制作・配信します。</p>
+    </div>
+
+    <div class="service-item">
+      <h2>03 営業代行</h2>
+      <p>企業の営業活動を代行し、商談・クロージングを中心とした営業支援を行います。</p>
+    </div>
+  </main>
+</Layout>
+
+<style>
+  .service {
+    min-height: 100vh;
+    background-color: #0a0a0a;
+    color: #f5f0e8;
+    padding: 4rem 2rem;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  .service h1 {
+    font-size: clamp(2rem, 5vw, 3rem);
+    background: linear-gradient(135deg, #ff6b35, #f7931e, #ffd700);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    margin-bottom: 0.5rem;
+  }
+  .lead {
+    color: #b8b0a0;
+    margin-bottom: 3rem;
+    font-size: 1.05rem;
+  }
+  .service-item {
+    border-top: 1px solid #2a2a2a;
+    padding: 2rem 0;
+  }
+  .service-item h2 {
+    font-size: 1.4rem;
+    color: #ff6b35;
+    margin-bottom: 0.75rem;
+  }
+  .service-item p {
+    color: #b8b0a0;
+    line-height: 1.8;
+  }
+</style>

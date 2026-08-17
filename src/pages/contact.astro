@@ -1,0 +1,93 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout>
+  <main class="contact">
+    <h1>お問い合わせ</h1>
+    <p class="lead">SNS運用代行・広告事業・営業代行について、お気軽にご相談ください。</p>
+
+    <form class="contact-form">
+      <label>
+        お名前
+        <input type="text" name="name" required />
+      </label>
+      <label>
+        会社名
+        <input type="text" name="company" />
+      </label>
+      <label>
+        メールアドレス
+        <input type="email" name="email" required />
+      </label>
+      <label>
+        お問い合わせ内容
+        <textarea name="message" rows="6" required></textarea>
+      </label>
+      <button type="submit">送信する</button>
+    </form>
+  </main>
+</Layout>
+
+<style>
+  .contact {
+    min-height: 100vh;
+    background-color: #0a0a0a;
+    color: #f5f0e8;
+    padding: 4rem 2rem;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  .contact h1 {
+    font-size: clamp(2rem, 5vw, 3rem);
+    background: linear-gradient(135deg, #ff6b35, #f7931e, #ffd700);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    margin-bottom: 0.5rem;
+  }
+  .lead {
+    color: #b8b0a0;
+    margin-bottom: 2.5rem;
+  }
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+  label {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+    color: #b8b0a0;
+  }
+  input, textarea {
+    background: #1a1a1a;
+    border: 1px solid #333;
+    border-radius: 6px;
+    padding: 0.75rem;
+    color: #f5f0e8;
+    font-family: inherit;
+    font-size: 1rem;
+  }
+  input:focus, textarea:focus {
+    outline: none;
+    border-color: #ff6b35;
+  }
+  button {
+    margin-top: 0.5rem;
+    background: linear-gradient(135deg, #ff6b35, #f7931e);
+    border: none;
+    border-radius: 6px;
+    padding: 0.9rem;
+    color: #0a0a0a;
+    font-weight: 700;
+    font-size: 1rem;
+    cursor: pointer;
+  }
+  button:hover {
+    opacity: 0.9;
+  }
+</style>
+

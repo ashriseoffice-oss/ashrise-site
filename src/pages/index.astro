@@ -7,5 +7,38 @@ import Layout from '../layouts/Layout.astro';
 ---
 
 <Layout>
-	<Welcome />
+  <main class="hero">
+    <h1>Ash Rise</h1>
+    <p class="tagline">灰の中から、また立ち上がる。</p>
+  </main>
 </Layout>
+
+<style>
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #0a0a0a;
+    color: #f5f0e8;
+    text-align: center;
+    padding: 2rem;
+  }
+  .hero h1 {
+    font-size: clamp(3rem, 8vw, 6rem);
+    font-weight: 700;
+    margin: 0;
+    background: linear-gradient(135deg, #ff6b35, #f7931e, #ffd700);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    letter-spacing: 0.05em;
+  }
+  .tagline {
+    margin-top: 1.5rem;
+    font-size: clamp(1rem, 2vw, 1.4rem);
+    color: #b8b0a0;
+    letter-spacing: 0.1em;
+  }
+</style>
