@@ -1,20 +1,76 @@
 ---
-import Welcome from '../components/Welcome.astro';
 import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
 ---
 
 <Layout>
   <main class="hero">
+    <div class="glow"></div>
+    <div class="embers">
+      <span></span><span></span><span></span><span></span><span></span>
+      <span></span><span></span><span></span><span></span><span></span>
+    </div>
     <h1>Ash Rise</h1>
     <p class="tagline">灰の中から、また立ち上がる。</p>
   </main>
+
+  <section id="about" class="section-block">
+    <div class="glow small"></div>
+    <h2 class="fade-in">会社概要</h2>
+    <div class="content fade-in-delay">
+      <p>Ash Riseは、不死鳥が灰から蘇る伝説に由来する社名です。</p>
+      <p>私たちは、何度倒れても立ち上がる強さを大切にしています。</p>
+    </div>
+  </section>
+
+  <section id="service" class="section-block">
+    <div class="glow small"></div>
+    <h2 class="fade-in">事業内容</h2>
+    <p class="lead fade-in-delay">SNS運用代行 × 広告事業 × 営業代行 —— ワンストップ型 総合マーケティング支援</p>
+
+    <div class="service-item fade-in">
+      <h3>01 SNS運用代行</h3>
+      <p>企業のSNSアカウント運用を代行し、企画・撮影・編集・投稿・分析までを一貫して支援します。</p>
+    </div>
+    <div class="service-item fade-in">
+      <h3>02 広告事業</h3>
+      <p>Instagram・TikTokを中心に、企業・店舗・賃貸物件・商品などのPRを企画・制作・配信します。</p>
+    </div>
+    <div class="service-item fade-in">
+      <h3>03 営業代行</h3>
+      <p>企業の営業活動を代行し、商談・クロージングを中心とした営業支援を行います。</p>
+    </div>
+  </section>
+
+  <section id="contact" class="section-block">
+    <div class="glow small"></div>
+    <h2 class="fade-in">お問い合わせ</h2>
+    <p class="lead fade-in-delay">SNS運用代行・広告事業・営業代行について、お気軽にご相談ください。</p>
+
+    <form class="contact-form fade-in">
+      <label>
+        お名前
+        <input type="text" name="name" required />
+      </label>
+      <label>
+        会社名
+        <input type="text" name="company" />
+      </label>
+      <label>
+        メールアドレス
+        <input type="email" name="email" required />
+      </label>
+      <label>
+        お問い合わせ内容
+        <textarea name="message" rows="6" required></textarea>
+      </label>
+      <button type="submit">送信する</button>
+    </form>
+  </section>
 </Layout>
 
 <style>
   .hero {
+    position: relative;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -24,8 +80,63 @@ import Layout from '../layouts/Layout.astro';
     color: #f5f0e8;
     text-align: center;
     padding: 2rem;
+    overflow: hidden;
+  }
+  .glow {
+    position: absolute;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(255,107,53,0.15), transparent 70%);
+    border-radius: 50%;
+    filter: blur(40px);
+    animation: pulse 6s ease-in-out infinite;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  .glow.small {
+    width: 400px;
+    height: 400px;
+    opacity: 0.7;
+  }
+  @keyframes pulse {
+    0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.8; }
+    50% { transform: translate(-50%, -50%) scale(1.15); opacity: 1; }
+  }
+  .embers {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+  }
+  .embers span {
+    position: absolute;
+    bottom: -20px;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: #ff8a3d;
+    box-shadow: 0 0 6px 2px rgba(255,138,61,0.6);
+    animation: rise linear infinite;
+  }
+  .embers span:nth-child(1) { left: 10%; animation-duration: 9s; animation-delay: 0s; }
+  .embers span:nth-child(2) { left: 20%; animation-duration: 12s; animation-delay: 1s; }
+  .embers span:nth-child(3) { left: 32%; animation-duration: 8s; animation-delay: 2.5s; }
+  .embers span:nth-child(4) { left: 45%; animation-duration: 14s; animation-delay: 0.5s; }
+  .embers span:nth-child(5) { left: 58%; animation-duration: 10s; animation-delay: 3s; }
+  .embers span:nth-child(6) { left: 68%; animation-duration: 11s; animation-delay: 1.5s; }
+  .embers span:nth-child(7) { left: 76%; animation-duration: 9s; animation-delay: 4s; }
+  .embers span:nth-child(8) { left: 85%; animation-duration: 13s; animation-delay: 2s; }
+  .embers span:nth-child(9) { left: 93%; animation-duration: 10s; animation-delay: 0.8s; }
+  .embers span:nth-child(10) { left: 50%; animation-duration: 15s; animation-delay: 3.5s; }
+  @keyframes rise {
+    0% { transform: translateY(0) translateX(0); opacity: 0; }
+    10% { opacity: 1; }
+    50% { transform: translateY(-50vh) translateX(20px); }
+    90% { opacity: 0.6; }
+    100% { transform: translateY(-100vh) translateX(-15px); opacity: 0; }
   }
   .hero h1 {
+    position: relative;
     font-size: clamp(3rem, 8vw, 6rem);
     font-weight: 700;
     margin: 0;
@@ -34,11 +145,126 @@ import Layout from '../layouts/Layout.astro';
     background-clip: text;
     color: transparent;
     letter-spacing: 0.05em;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeUp 1s ease-out forwards;
   }
   .tagline {
+    position: relative;
     margin-top: 1.5rem;
     font-size: clamp(1rem, 2vw, 1.4rem);
     color: #b8b0a0;
     letter-spacing: 0.1em;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeUp 1s ease-out 0.3s forwards;
+  }
+  @keyframes fadeUp {
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .section-block {
+    position: relative;
+    background-color: #0a0a0a;
+    color: #f5f0e8;
+    padding: 6rem 2rem;
+    border-top: 1px solid #2a2a2a;
+    overflow: hidden;
+  }
+  .section-block > * {
+    position: relative;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .section-block h2 {
+    font-size: clamp(2rem, 5vw, 3rem);
+    background: linear-gradient(135deg, #ff6b35, #f7931e, #ffd700);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    margin-bottom: 0.5rem;
+  }
+  .content p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #b8b0a0;
+    margin-bottom: 1rem;
+  }
+  .lead {
+    color: #b8b0a0;
+    margin-bottom: 3rem;
+    font-size: 1.05rem;
+  }
+  .service-item {
+    border-top: 1px solid #2a2a2a;
+    padding: 2rem 0;
+    transition: padding-left 0.3s ease;
+  }
+  .service-item:hover {
+    padding-left: 1rem;
+  }
+  .service-item h3 {
+    font-size: 1.4rem;
+    color: #ff6b35;
+    margin-bottom: 0.75rem;
+  }
+  .service-item p {
+    color: #b8b0a0;
+    line-height: 1.8;
+  }
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    margin-top: 2.5rem;
+  }
+  .contact-form label {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+    color: #b8b0a0;
+  }
+  .contact-form input, .contact-form textarea {
+    background: #1a1a1a;
+    border: 1px solid #333;
+    border-radius: 6px;
+    padding: 0.75rem;
+    color: #f5f0e8;
+    font-family: inherit;
+    font-size: 1rem;
+    transition: border-color 0.2s ease;
+  }
+  .contact-form input:focus, .contact-form textarea:focus {
+    outline: none;
+    border-color: #ff6b35;
+  }
+  .contact-form button {
+    margin-top: 0.5rem;
+    background: linear-gradient(135deg, #ff6b35, #f7931e);
+    border: none;
+    border-radius: 6px;
+    padding: 0.9rem;
+    color: #0a0a0a;
+    font-weight: 700;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+  }
+  .contact-form button:hover {
+    opacity: 0.9;
+    transform: translateY(-2px);
+  }
+
+  .fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeUp 0.8s ease-out forwards;
+  }
+  .fade-in-delay {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeUp 0.8s ease-out 0.2s forwards;
   }
 </style>
